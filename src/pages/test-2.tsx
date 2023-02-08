@@ -7,8 +7,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Test2() {
   useEffect(() => {
+    if (!!document.getElementById("iframe-container")?.childNodes.length) {
+      return;
+    }
+
+    // Create iframe
+    const iframe = document.createElement("iframe");
+    iframe.name = "my_iframe";
+    iframe.src = "about:blank";
+
+    // Append iframe to div
+    const div = document.getElementById("iframe-container");
+    div?.appendChild(iframe);
+
     // Create a form
-    let form = document.createElement("form");
+    const form = document.createElement("form");
     form.method = "POST";
     form.action = "http://127.0.0.1:3001/api/show-card-data";
     // form.action = "/api/show-card-data";
@@ -38,7 +51,7 @@ export default function Test2() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <iframe name="my_iframe" src="about:blank"></iframe>
+        <div id="iframe-container" />
       </main>
     </>
   );
