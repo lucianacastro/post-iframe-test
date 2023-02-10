@@ -5,6 +5,9 @@ import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// se puede probar corriendo en consola document.getElementsByTagName('iframe')[0].contentDocument.body.innerText.match(/123/)
+// que si el dominio del iframe es distinto no se puede obtener el contenido del iframe
+
 export default function Test2() {
   useEffect(() => {
     if (!!document.getElementById("iframe-container")?.childNodes.length) {
@@ -23,6 +26,9 @@ export default function Test2() {
     // Create a form
     const form = document.createElement("form");
     form.method = "POST";
+
+    // El navegador asume que es un dominio distinto y aplica la política de que JS
+    // no puede acceder al contenido del iframe que es otro dominio
     form.action = "http://127.0.0.1:3001/api/show-card-data";
     // form.action = "/api/show-card-data";
     form.target = "my_iframe";
