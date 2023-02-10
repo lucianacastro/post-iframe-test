@@ -45,6 +45,8 @@ export default function Test2() {
 
     // Submit form
     form.submit();
+
+    // Remove form
     form.remove();
   }, []);
 
