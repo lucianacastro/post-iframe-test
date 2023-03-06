@@ -29,7 +29,7 @@ export default function Test2() {
 
     // El navegador asume que es un dominio distinto y aplica la política de que JS
     // no puede acceder al contenido del iframe que es otro dominio
-    form.action = "http://127.0.0.1:3001/api/show-card-data";
+    form.action = "http://127.0.0.1:3000/api/show-card-data";
     // form.action = "/api/show-card-data";
     form.target = "my_iframe";
     form.style.visibility = "hidden";

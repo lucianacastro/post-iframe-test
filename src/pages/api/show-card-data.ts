@@ -9,5 +9,9 @@ export default function handler(
     // .setHeader("X-Frame-Options", "DENY")
     // .setHeader("X-Frame-Options", "SAMEORIGIN")
     .status(200)
-    .send(`CCV: ${req.body.token === "abcdef" ? 123 : "Invalid token"}`);
+    .send(
+      `${req.body.widgetId}: ${
+        req.body.token === "abcdef" ? 123 : "Invalid token"
+      }`
+    );
 }
